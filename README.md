@@ -1,5 +1,5 @@
 # simple-find-human
-use kinect to detect human and move to him
+Use kinect to detect human and move close to him
 
 Firstly,detect the human body with caffemodel.
 
