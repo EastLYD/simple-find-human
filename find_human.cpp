@@ -1,4 +1,4 @@
-/*void kinect_detect_object()
+void kinect_detect_object()
 
 {	ros::NodeHandle nh;
 	int rate=100;
@@ -48,7 +48,7 @@ double goal_angle,angle_duration;
 				int tl_y = static_cast<int>(detectionMat.at<float>(i, 4) * color.rows);
 				int br_x = static_cast<int>(detectionMat.at<float>(i, 5) * color.cols);
 				int br_y = static_cast<int>(detectionMat.at<float>(i, 6) * color.rows);
-				if(( objectClass==15 )&&( confidence > 0.5 ))//objectClass==15´ú±íÊÇÈËÀàµÄ·ÖÀà
+				if(( objectClass==15 )&&( confidence > 0.5 ))//objectClass==15ä»£è¡¨æ˜¯äººç±»çš„åˆ†ç±»
 				{
 					rectangle(color, Point(tl_x, tl_y), Point(br_x, br_y), Scalar(0, 255, 0), 3);
 					putText(color, to_string(confidence), Point(tl_x, tl_y), FONT_HERSHEY_SIMPLEX, 3, Scalar(0, 20, 255), 3);
@@ -56,14 +56,14 @@ double goal_angle,angle_duration;
 
 					const uint16_t *itD = depth.ptr<uint16_t>((int)( 0.5 * (tl_y + br_y) ));
 	   				itD += (int)( 0.5 * (tl_x + br_x) );
-	    				register const float depthValue = *itD / 1000.0f;//depthValueµ¥Î»ÎªÃ×
+	    				register const float depthValue = *itD / 1000.0f;//depthValueå•ä½ä¸ºç±³
 
 	    				if((0 < depthValue) && (depthValue < 5)) putText(color, to_string(depthValue), Point((int)( 0.5 * (tl_x + br_x) ),
 											(int)( 0.5 * (tl_y + br_y) )), FONT_HERSHEY_SIMPLEX, 3, Scalar(180, 105, 255), 3);
 					//if(count%30==0)
 						//{
 
-						//ÅÄÕÕ±£´æ
+						//æ‹ç…§ä¿å­˜
 						if (find_human==0) { imwrite("detect_human01",color);  find_human++}
 						else if(find_human==1) {imwrite ("detect_human02",color); find_human}
 						else imwrite ("detect_human03",color);
@@ -133,17 +133,17 @@ double goal_angle,angle_duration;
                             ros::spinOnce();
 
                             flag=1;
-  			        //ÅÄÕÕ±£´æ
+  			        //æ‹ç…§ä¿å­˜
 							}
                   //}
 				}
-				//¼ì²â²»µ½ÈË£¬Ğı×ª
+				//æ£€æµ‹ä¸åˆ°äººï¼Œæ—‹è½¬
 				//String label = format("%s: %.2f", classNames[objectClass], confidence);
 				//putText(color, label, Point(tl_x, tl_y), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 255, 0));
 			}
 
 		}
-            if(flag==0)//¼ì²â²»µ½ÈË£¬Ğı×ª
+            if(flag==0)//æ£€æµ‹ä¸åˆ°äººï¼Œæ—‹è½¬
         {
             goal_angle=3.14/180*120;
             vel.angular.z = 0.5;
@@ -171,4 +171,4 @@ double goal_angle,angle_duration;
 		if(flag==1) break;
 	}//while
 
-}*/
+}
